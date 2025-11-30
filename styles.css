@@ -43,17 +43,35 @@ body {
     height: 70px;
 }
 
-.logo h1 {
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text h1 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
+    line-height: 1.1;
 }
 
 .logo-subtitle {
     font-size: 0.8rem;
     color: #6b7280;
     font-weight: 400;
+    display: block;
 }
 
 .nav-menu {
@@ -150,10 +168,15 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
     opacity: 0.9;
+}
+
+.hero-subtitle em {
+    font-style: italic;
+    font-weight: 400;
 }
 
 .hero-description {
@@ -581,6 +604,20 @@ section:not(.hero):last-of-type {
     
     .nav-menu li {
         margin: 1rem 0;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        padding: 3px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem;
     }
     
     .hamburger.active span:nth-child(2) {
@@ -1044,6 +1081,25 @@ section:not(.hero):last-of-type {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.logo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logo-link img {
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover img {
+    transform: scale(1.05);
+}
+
 .co-organizers-row .co-organizer-item span,
 .co-organizers-row .university-item span {
     color: #4b5563;
@@ -1233,6 +1289,20 @@ section:not(.hero):last-of-type {
 .directions-section {
     padding: 4rem 0;
     background: #f8fafc;
+}
+
+.bus-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.bus-link:hover {
+    color: #1e40af;
+    border-bottom: 1px solid #1e40af;
+    text-decoration: none;
 }
 
 .directions-section h2 {
