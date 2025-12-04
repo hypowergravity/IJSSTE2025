@@ -951,6 +951,22 @@ section:not(.hero):last-of-type {
     margin: 2rem 0;
 }
 
+.deadline-notice {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.deadline-notice strong {
+    font-weight: 600;
+}
+
 .gmail-modal {
     position: fixed;
     top: 0;
