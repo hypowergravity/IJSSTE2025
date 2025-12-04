@@ -71,8 +71,20 @@
                             <div class="date-item">
                                 <strong>Venue:</strong> ICReDD Hall, Hokkaido University
                             </div>
-                            <div class="date-item">
-                                <strong>Registration Details:</strong> To be announced
+                        </div>
+
+                        <div class="registration-fees">
+                            <h3>Registration Fees</h3>
+                            <div class="fees-list">
+                                <div class="fee-item">
+                                    <strong>Students:</strong> 1,500 yen
+                                </div>
+                                <div class="fee-item">
+                                    <strong>Postdoc:</strong> 3,000 yen
+                                </div>
+                                <div class="fee-item">
+                                    <strong>Faculty:</strong> 5,000 yen
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,19 +92,42 @@
                     <div class="registration-form-section">
                         <div class="form-container">
                             <h2>Registration & Poster Submission</h2>
-                            <p>Complete your registration and optionally submit your poster abstract using the Google form below.</p>
+                            <p>Complete your registration below. Check the poster option if you want to submit an abstract.</p>
                             
-                            <div class="google-form-section">
-                                <h3>Complete Registration</h3>
-                                <p>Use the form to register for the symposium and submit poster abstracts (optional).</p>
+                            <div class="registration-form-wrapper">
+                                <div class="participation-options">
+                                    <h3>Select Your Participation Level</h3>
+                                    
+                                    <label class="option-checkbox">
+                                        <input type="radio" name="participation" value="registration-only" checked>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <h4>Registration Only</h4>
+                                            <p>Register for symposium participation. For optional poster submission, please email us at the contact below.</p>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="option-checkbox">
+                                        <input type="radio" name="participation" value="registration-poster">
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <h4>Registration + Poster Submission</h4>
+                                            <p>Choose form with Gmail account or without Gmail account.</p>
+                                        </div>
+                                    </label>
+                                </div>
                                 
-                                <a href="https://forms.gle/y8jHBpNF1Zc6szsN8" target="_blank" class="btn btn-primary btn-large">
-                                    Complete Registration & Poster Submission
-                                </a>
-                                
-                                <p class="form-note">
-                                    <strong>Note:</strong> Detailed instructions and requirements are provided in the form.
-                                </p>
+                                <div class="form-action">
+                                    <button id="proceedBtn" class="btn btn-primary btn-large">
+                                        Proceed to Registration Form
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info">
+                                <p><strong>Questions or need assistance?</strong></p>
+                                <p>Email us at:</p>
+                                <a href="mailto:ijsste.hokkaido.symposium.2025@gmail.com" class="email-link">ijsste.hokkaido.symposium.2025@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -230,5 +265,65 @@
 
     <script src="script.js"></script>
     <script src="registration.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const proceedBtn = document.getElementById('proceedBtn');
+            const radioButtons = document.querySelectorAll('input[name="participation"]');
+            
+            proceedBtn.addEventListener('click', function() {
+                const selectedOption = document.querySelector('input[name="participation"]:checked').value;
+                
+                if (selectedOption === 'registration-only') {
+                    window.open('https://forms.gle/NbmKGWksYvR7Ceim8', '_blank');
+                } else if (selectedOption === 'registration-poster') {
+                    // Show Gmail vs non-Gmail options
+                    showGmailOptions();
+                }
+            });
+            
+            function showGmailOptions() {
+                const modal = document.createElement('div');
+                modal.className = 'gmail-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <h3>Choose Your Preferred Form</h3>
+                        <p>Select the form that works best for you:</p>
+                        
+                        <div class="gmail-options">
+                            <button class="gmail-option-btn" onclick="openGmailForm()">
+                                <h4>With Gmail Account</h4>
+                                <p>Easier form completion and automatic confirmations</p>
+                            </button>
+                            
+                            <button class="gmail-option-btn" onclick="openNonGmailForm()">
+                                <h4>Without Gmail Account</h4>
+                                <p>Registration only - for poster submission, email us</p>
+                            </button>
+                        </div>
+                        
+                        <button class="close-modal" onclick="closeModal()">Cancel</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            
+            window.openGmailForm = function() {
+                window.open('https://forms.google.com/your-gmail-poster-form', '_blank');
+                closeModal();
+            }
+            
+            window.openNonGmailForm = function() {
+                window.open('https://forms.gle/NbmKGWksYvR7Ceim8', '_blank');
+                closeModal();
+            }
+            
+            window.closeModal = function() {
+                const modal = document.querySelector('.gmail-modal');
+                if (modal) {
+                    modal.remove();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
