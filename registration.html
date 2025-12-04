@@ -103,7 +103,7 @@
                                         <span class="checkmark"></span>
                                         <div class="option-content">
                                             <h4>Registration Only</h4>
-                                            <p>Register for symposium participation. For optional poster submission, please email us at the contact below.</p>
+                                            <p>Register to attend the symposium. For poster submission, Email us.</p>
                                         </div>
                                     </label>
                                     
@@ -112,7 +112,7 @@
                                         <span class="checkmark"></span>
                                         <div class="option-content">
                                             <h4>Registration + Poster Submission</h4>
-                                            <p>Choose form with Gmail account or without Gmail account.</p>
+                                            <p>Complete registration and submit your poster abstract through integrated form.</p>
                                         </div>
                                     </label>
                                 </div>
@@ -274,55 +274,14 @@
                 const selectedOption = document.querySelector('input[name="participation"]:checked').value;
                 
                 if (selectedOption === 'registration-only') {
-                    window.open('https://forms.gle/NbmKGWksYvR7Ceim8', '_blank');
+                    // Direct to registration only form
+                    window.open('https://forms.gle/FrQpXGRZEusUxikq6', '_blank');
                 } else if (selectedOption === 'registration-poster') {
-                    // Show Gmail vs non-Gmail options
-                    showGmailOptions();
+                    // Direct to registration + poster form
+                    window.open('https://forms.gle/aTGokL3fZxRy56DW7', '_blank');
                 }
             });
             
-            function showGmailOptions() {
-                const modal = document.createElement('div');
-                modal.className = 'gmail-modal';
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <h3>Choose Your Preferred Form</h3>
-                        <p>Select the form that works best for you:</p>
-                        
-                        <div class="gmail-options">
-                            <button class="gmail-option-btn" onclick="openGmailForm()">
-                                <h4>With Gmail Account</h4>
-                                <p>Easier form completion and automatic confirmations</p>
-                            </button>
-                            
-                            <button class="gmail-option-btn" onclick="openNonGmailForm()">
-                                <h4>Without Gmail Account</h4>
-                                <p>Registration only - for poster submission, email us</p>
-                            </button>
-                        </div>
-                        
-                        <button class="close-modal" onclick="closeModal()">Cancel</button>
-                    </div>
-                `;
-                document.body.appendChild(modal);
-            }
-            
-            window.openGmailForm = function() {
-                window.open('https://forms.google.com/your-gmail-poster-form', '_blank');
-                closeModal();
-            }
-            
-            window.openNonGmailForm = function() {
-                window.open('https://forms.gle/NbmKGWksYvR7Ceim8', '_blank');
-                closeModal();
-            }
-            
-            window.closeModal = function() {
-                const modal = document.querySelector('.gmail-modal');
-                if (modal) {
-                    modal.remove();
-                }
-            }
         });
     </script>
 </body>
